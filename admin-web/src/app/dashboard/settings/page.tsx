@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Settings as SettingsIcon, Store, User, Bell, Shield } from 'lucide-react'
+import { Settings as SettingsIcon, Store, User, Bell, Shield, LogOut } from 'lucide-react'
 import ScrollReveal3D from '@/components/ScrollReveal3D'
+import { logout } from '@/app/actions/auth'
 
 export default function SettingsPage() {
     const [storeName, setStoreName] = useState('Clothes Store')
@@ -17,6 +18,10 @@ export default function SettingsPage() {
         await new Promise((resolve) => setTimeout(resolve, 1000))
         setSaving(false)
         alert('Settings saved successfully!')
+    }
+
+    const handleLogout = async () => {
+        await logout()
     }
 
     return (
@@ -159,6 +164,28 @@ export default function SettingsPage() {
                             />
                         </div>
                     </div>
+                    </ScrollReveal3D>
+
+                    {/* Danger Zone */}
+                    <ScrollReveal3D delay={2}>
+                        <div className="mt-6 card p-6 border border-red-100 bg-red-50/30">
+                            <h3 className="font-bold text-red-600 mb-2 flex items-center gap-2">
+                                <LogOut className="h-5 w-5" />
+                                Session Management
+                            </h3>
+                            <p className="text-[13px] text-dark-500 mb-5">
+                                Securely end your current administrative session and return to the login screen.
+                            </p>
+                            <button
+                                type="button"
+                                onClick={handleLogout}
+                                className="flex items-center justify-center gap-2 px-6 py-2.5 bg-red-50 text-red-600 font-bold rounded-xl hover:bg-red-100 hover:text-red-700 transition-all border border-red-200 shadow-sm"
+                                suppressHydrationWarning
+                            >
+                                <LogOut className="h-4 w-4" />
+                                Sign Out
+                            </button>
+                        </div>
                     </ScrollReveal3D>
                 </div>
             </div>

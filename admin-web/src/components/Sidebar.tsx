@@ -20,7 +20,6 @@ import {
     Sparkles,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import { logout } from '@/app/actions/auth'
 
 const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard, color: 'from-indigo-500 to-purple-500' },
@@ -54,9 +53,7 @@ export default function Sidebar() {
         return () => clearInterval(interval)
     }, [])
 
-    const handleLogout = async () => {
-        await logout()
-    }
+
 
     return (
         <div className="flex flex-col w-[280px] bg-white/95 backdrop-blur-2xl h-screen fixed left-0 top-0 z-50 border-r border-dark-100/40 shadow-elevated">
@@ -170,27 +167,6 @@ export default function Sidebar() {
                 })}
             </nav>
 
-            {/* Bottom Section */}
-            <div className="border-t border-dark-100/40 p-3.5 space-y-2">
-                {/* Quick Status */}
-                <div className="px-3 py-2.5 rounded-xl bg-gradient-to-r from-primary-50 to-purple-50 border border-primary-100/50">
-                    <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                        <span className="text-[11px] font-semibold text-primary-700">System Online</span>
-                    </div>
-                </div>
-
-                <button
-                    onClick={handleLogout}
-                    className="flex items-center gap-3 px-3 py-2.5 w-full rounded-xl text-dark-500 hover:bg-red-50 hover:text-red-600 transition-all duration-200 group"
-                    suppressHydrationWarning
-                >
-                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-dark-100/50 group-hover:bg-red-100 transition-all">
-                        <LogOut className="h-4 w-4 text-dark-400 group-hover:text-red-500 transition-colors flex-shrink-0" size={16} />
-                    </div>
-                    <span className="text-[13px] font-medium">Sign Out</span>
-                </button>
-            </div>
         </div>
     )
 }
