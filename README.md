@@ -6,10 +6,10 @@ A full-stack clothing store platform built as a monorepo with a customer mobile 
 
 ## ✨ Features
 
+- 🖼️ AI-powered automatic product image background removal
 - 🛍️ Browse, search, and purchase clothing products
 - 🔐 Secure user authentication and profile management
 - 🛒 Cart management and order placement
-- 🖼️ AI-powered automatic product image background removal
 - 📦 Admin product management — add, edit, delete listings
 - 📋 Order management and status tracking
 - 👥 Customer management and activity view
